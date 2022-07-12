@@ -6,7 +6,7 @@ const Body = Matter.Body;
 
 var engine, world
 
-var block1,block2,block3
+var bloco1,bloco2,bloco3
 
 
 function setup() {
@@ -15,31 +15,34 @@ function setup() {
 
 	engine = Engine.create();
 	world = engine.world;
-
-	var plane_options = {
+// propriedade do solo
+	var ground_options = {
 		isStatic:true
 	}
-	//Crie os Corpos Aqui.
-	plane = Bodies.rectangle(600,580,1200,2,plane_options)
-	World.add(world,plane)
-	
-	var block1_options = {
+// corpo do solo
+	ground = Bodies.rectangle(600,580,1200,2,ground_options)
+	World.add(world,ground)
+// propriedade do bloco1
+	var bloco1_options = {
 		restitution:0.5,
 		friction:0.02,
 		frictionAir:0
 	  }
-	//crie as outras duas variaveis
+//crie a propriedade do bloco2 aqui
+
+//crie a propriedade do bloco3 aqui
 
 
+// corpo do bloco1
+	bloco1 = Bodies.circle(220,10,10,bloco1_options);
+	World.add(world,bloco1);
+
+//crie o corpo do bloco2 e adicione ao mundo aqui
+
+//crie o corpo do bloco3 e adicione ao mundo aqui
 
 
-	block1 = Bodies.circle(220,10,10,block1_options);
-	World.add(world,block1);
-    //crie os outros corpos
-
-
-
-	//estilizando os corpos aqui
+//estamos estilizando os corpos aqui
     fill(23);
 	rectMode(CENTER);
 	ellipseMode(RADIUS);
@@ -50,10 +53,16 @@ function draw() {
 	
   background(23);
   Engine.update(engine)
-  rect(plane.position.x,plane.position.y,1200);
 
-  ellipse(block1.position.x,block1.position.y,30);
-  //desenhe os outros dois retangulos
+  //  desenhamos o retângulo do solo
+  rect(ground.position.x,ground.position.y,1200);
+
+  // desenhamos o ellipse do bloco1
+  ellipse(bloco1.position.x,bloco1.position.y,30);
+  
+  //desenhe outro retangulo aqui para o bloco2
+
+  //desenhe outro retangulo aqui para o bloco3
 
 
 
